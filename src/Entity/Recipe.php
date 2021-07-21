@@ -27,7 +27,7 @@ class Recipe
     /**
      * @ORM\Column(type="text")
      */
-    private string $decription;
+    private string $description;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -47,12 +47,17 @@ class Recipe
     /**
      * @ORM\OneToMany(targetEntity=Ingredient::class, mappedBy="recipe")
      */
-    private Collection $ingredient;
+    private ?Collection $ingredient;
 
     /**
      * @ORM\Column(type="integer")
      */
     private int $peuple;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="recipes")
+     */
+    private ?User $user;
 
     public function __construct()
     {
@@ -76,14 +81,14 @@ class Recipe
         return $this;
     }
 
-    public function getDecription(): ?string
+    public function getDescription(): ?string
     {
-        return $this->decription;
+        return $this->description;
     }
 
-    public function setDecription(string $decription): self
+    public function setDescription(string $description): self
     {
-        $this->decription = $decription;
+        $this->description = $description;
 
         return $this;
     }
@@ -162,6 +167,18 @@ class Recipe
     public function setPeuple(int $peuple): self
     {
         $this->peuple = $peuple;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

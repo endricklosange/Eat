@@ -26,7 +26,7 @@ class Ingredient
      * @ORM\ManyToOne(targetEntity=Recipe::class, inversedBy="ingredient")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $recipe;
+    private ?Recipe $recipe;
 
     public function getId(): ?int
     {

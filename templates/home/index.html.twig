@@ -1,7 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Home Eat
+{% endblock %}
 
 {% block body %}
-
+	<header class="d-flex justify-content-center align-items-center">
+		<img class="banner" src="{{ asset('build/images/banner.jpg') }}" alt"bannière"/>
+        <h1  class="banner-title">EAT healthy recipe</h1>
+		<form class="d-flex searchBarre">
+			<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-light " type="submit">Rechercher</button>
+		</form>
+	</header>
 {% endblock %}
