@@ -4,3 +4,13 @@
 body {
     background-color: lightgray;
 }
+main {
+    margin-top: 98px;
+    min-height: calc(100vh - 246px);
+}
+.navbar-logo{
+    height: 80px;
+}
+.navbar a{
+    font-size: 1.5em;
+}
