@@ -59,6 +59,11 @@ class Recipe
      */
     private ?User $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="recipes")
+     */
+    private $categories;
+
     public function __construct()
     {
         $this->ingredient = new ArrayCollection();
@@ -179,6 +184,18 @@ class Recipe
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getCategories(): ?Category
+    {
+        return $this->categories;
+    }
+
+    public function setCategories(?Category $categories): self
+    {
+        $this->categories = $categories;
 
         return $this;
     }
