@@ -3,23 +3,37 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<nav>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Logo</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-      </ul>
-    </div>
-  </nav>
 
-  <ul class="sidenav" id="mobile-demo">
-    <li><a href="sass.html">Sass</a></li>
-    <li><a href="badges.html">Components</a></li>
-    <li><a href="collapsible.html">Javascript</a></li>
-    <li><a href="mobile.html">Mobile</a></li>
-  </ul>
+<nav class="navbar bg-light navbar-expand-md navbar-light fixed-top pb-2">
+    <a href="{{ path('home') }}"><img src="{{ asset('build/images/logo.png') }}" alt="logo" class="navbar-logo mx-4 logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+         <div class="navbar-collapse collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto text-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Offres</a>
+                </li>
+                <li class="nav-item ml-5">
+                    <a class="nav-link" href="/">Tarifs</a>
+                </li>
+                <li class="nav-item ml-5">
+                    <a class="nav-link" href="/">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link my-2 mx-3 my-md-0 py-1 px-4 mx-1" href="/">
+                        Inscription
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mb-sm-2 mb-md-0 py-1 px-4 mx-3" href="/">
+                        Connexion
+                    </a>
+                </li>
+            </ul>
+        </div>
+<nav>
 {% endblock %}
