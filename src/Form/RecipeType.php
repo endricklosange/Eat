@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class RecipeType extends AbstractType
 {
@@ -54,7 +55,7 @@ class RecipeType extends AbstractType
                 'multiple' => false,
                 'expanded' => false,
             ])
-        ;
+            ->add('imageFile',VichImageType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)

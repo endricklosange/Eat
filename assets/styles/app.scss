@@ -42,3 +42,9 @@ a,p{
 h2{
     color: $primary;
 }
+.imgShow{
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+    object-position: right center;
+}

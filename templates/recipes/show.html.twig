@@ -1,46 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Recipe{% endblock %}
+{% block title %}Recipe
+{% endblock %}
 
 {% block body %}
-    <h1>Recipe</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ recipe.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ recipe.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ recipe.description }}</td>
-            </tr>
-            <tr>
-                <th>CookingTime</th>
-                <td>{{ recipe.cookingTime }}</td>
-            </tr>
-            <tr>
-                <th>Preparation</th>
-                <td>{{ recipe.preparation }}</td>
-            </tr>
-            <tr>
-                <th>Level</th>
-                <td>{{ recipe.level }}</td>
-            </tr>
-            <tr>
-                <th>Peuple</th>
-                <td>{{ recipe.peuple }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class='container bg-white px-0 mt-2'>
+        <img class="imgShow w-100" src="{{ vich_uploader_asset(recipe) }}" alt="Card image cap">
+        <div class='container'>
+            <h2 text-center>{{ recipe.name }}</h2>
+            <p>Cuisson
+                {{ recipe.cookingTime }}
+                min</p>
+            <p>Préparation
+                {{ recipe.preparation }}
+                min</p>
+            <p>Niveau :{{ recipe.level }}</p>
+            <p>{{ recipe.peuple }}
+                personnes</p>
+            <h2>Déscription :</h2>
+            <p>{{ recipe.description }}</p>
+            <a href="{{ path('recipes_index') }}">retour</a>
+        </div>
+    </div>
 
-    <a href="{{ path('recipes_index') }}">back to list</a>
 
-    <a href="{{ path('recipes_edit', {'id': recipe.id}) }}">edit</a>
-
-    {{ include('recipes/_delete_form.html.twig') }}
 {% endblock %}
