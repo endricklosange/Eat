@@ -25,16 +25,28 @@
 					</ul>
 				</li>
 			</ul>
+			{% if is_granted('IS_AUTHENTICATED_FULLY')  %}
+			<a class="text-primary">{{app.user.name}}</a>
 			<div class="nav-item">
-				<a class="nav-link text-primary" href="/">
+				<a class="nav-link mx 3 text-primary" href="{{ path('app_logout')}}">
+					Déconection
+				</a>
+			</div>
+			{% else %}
+				
+			<div class="nav-item">
+				<a class="nav-link text-primary" href="{{ path('app_register')}}">
 					Inscription
 				</a>
 			</div>
 			<div class="nav-item">
-				<a class="nav-link mx 3 text-primary" href="/">
+				<a class="nav-link mx 3 text-primary" href="{{ path('app_login')}}">
 					Connexion
 				</a>
 			</div>
+			{% endif %}
+			
+			
 		</div>
 	</div>
 </nav></nav>
