@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recipe index
+{% endblock %}
+
+{% block body %}
+
+
+    <div class="container bg-light my-2">
+        <h2 class="text-center py-3">Mes Recettes</h2>
+        <a href="{{ path('recipes_new') }}" class="btn btn-secondary text-light ">Ajouter une Recette</a>
+        <div class="row">
+
+            {% for recipe in recipes %}
+                <div class=" col-xl-4 col-lg-6 data-card my-2">
+                    <div class="card shadow" href="">
+                        <img class="card-img-top" src="https://picsum.photos/200/300" alt="Card image cap">
+                        <div class="card-body d-flex justify-content-center">
+                            
+                            <a href="{{ path('recipes_edit', {'id': recipe.id}) }}" class="btn btn-secondary text-light text-center">Modifier</a>
+                            <p class="text-center mx-5">{{recipe.name}}</p>
+                            <a href="{{ path('recipes_show', {'id': recipe.id}) }}" class="btn btn-secondary text-light text-center">Voir</a>
+                        </div>
+
+                    </div>
+                </div>
+            {% else %}
+                <p class="alert alert-warning text-center bg-primary text-light my-5">Aucune Recettes
+                </p>
+            {% endfor %}
+
+
+        </div>
+    </div>
+{% endblock %}

@@ -6,12 +6,27 @@
         </button>
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mx-2">
-                <div class="nav-item">
-                    <a class="nav-link text-primary" href="{{ path('recipe')}}">
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="{{ path('recipe_index')}}">
                         Recettes
                     </a>
-                </div>
+                </li>
             </ul>
+            {% if is_granted('ROLE_ADMIN') %}
+                <div class="nav-item">
+                    <a class="nav-link text-light btn btn-secondary mx-5" href="{{ path('recipe_index')}}">
+                        User
+                    </a>
+                </div>
+
+            {% elseif is_granted('ROLE_USER') %}
+
+                <div class="nav-item">
+                    <a class="nav-link text-light btn btn-secondary mx-5" href="{{ path('recipes_index')}}">
+                        Mes Recettes
+                    </a>
+                </div>
+            {% endif %}
             {% if is_granted('IS_AUTHENTICATED_FULLY')  %}
                 <a class="text-primary">{{app.user.name}}</a>
                 <div class="nav-item">
