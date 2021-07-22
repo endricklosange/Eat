@@ -1,52 +1,39 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<div class="container-fluid">
-    <a href="{{ path('home') }}"><img src="{{ asset('build/images/logo.png') }}" alt="logo" class="navbar-logo"></a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse " id="navbarSupportedContent">
-			<ul class="navbar-nav me-auto mx-2">
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle text-primary" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Recettes
-					</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li>
-							<a class="dropdown-item text-primary" href="#">Entrée</a>
-						</li>
-						<li><hr class="dropdown-divider"></li>
-						<li>
-							<a class="dropdown-item text-primary" href="#">Plats</a>
-						</li>
-						<li><hr class="dropdown-divider"></li>
-						<li>
-							<a class="dropdown-item text-primary" href="#">Désert</a>
-						</li>
-					</ul>
-				</li>
-			</ul>
-			{% if is_granted('IS_AUTHENTICATED_FULLY')  %}
-			<a class="text-primary">{{app.user.name}}</a>
-			<div class="nav-item">
-				<a class="nav-link mx 3 text-primary" href="{{ path('app_logout')}}">
-					Déconection
-				</a>
-			</div>
-			{% else %}
-				
-			<div class="nav-item">
-				<a class="nav-link text-primary" href="{{ path('app_register')}}">
-					Inscription
-				</a>
-			</div>
-			<div class="nav-item">
-				<a class="nav-link mx 3 text-primary" href="{{ path('app_login')}}">
-					Connexion
-				</a>
-			</div>
-			{% endif %}
-			
-			
-		</div>
-	</div>
+    <div class="container-fluid">
+        <a href="{{ path('home') }}"><img src="{{ asset('build/images/logo.png') }}" alt="logo" class="navbar-logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mx-2">
+                <div class="nav-item">
+                    <a class="nav-link text-primary" href="{{ path('recipe')}}">
+                        Recettes
+                    </a>
+                </div>
+            </ul>
+            {% if is_granted('IS_AUTHENTICATED_FULLY')  %}
+                <a class="text-primary">{{app.user.name}}</a>
+                <div class="nav-item">
+                    <a class="nav-link mx 3 text-primary" href="{{ path('app_logout')}}">
+                        Déconection
+                    </a>
+                </div>
+            {% else %}
+
+                <div class="nav-item">
+                    <a class="nav-link text-primary" href="{{ path('app_register')}}">
+                        Inscription
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link mx 3 text-primary" href="{{ path('app_login')}}">
+                        Connexion
+                    </a>
+                </div>
+            {% endif %}
+
+
+        </div>
+    </div>
 </nav></nav>

@@ -4,12 +4,28 @@
 {% endblock %}
 
 {% block body %}
-	<header class="d-flex justify-content-center align-items-center">
-		<img class="banner" src="{{ asset('build/images/banner.jpg') }}" alt"bannière"/>
-        <h1  class="banner-title">EAT healthy recipe</h1>
-		<form class="d-flex searchBarre">
-			<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-light " type="submit">Rechercher</button>
-		</form>
-	</header>
+    <header class="d-flex justify-content-center align-items-center">
+        <img class="banner" src="{{ asset('build/images/banner.jpg') }}" alt"bannière"/>
+        <h1 class="banner-title">EAT healthy recipe</h1>
+        <form class="d-flex searchBarre">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light " type="submit">Rechercher</button>
+        </form>
+    </header>
+    <div class="container bg-light">
+        <div class="row">
+            {% for recipe in recipes %}
+                <div class=" col-xl-4 col-lg-6 data-card my-2">
+                    <a class="card shadow"  href="/">
+                        <img class="card-img-top" src="https://picsum.photos/200/300" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="text-center">{{recipe.name}}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
 {% endblock %}

@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use Faker\Factory;
 use App\Entity\Recipe;
 use App\DataFixtures\UserFixtures;
+use App\DataFixtures\CategoryFixtures;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -27,6 +28,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             $recipe->setCookingTime($faker->numberBetween(5, 60));
             $recipe->setPreparation($faker->numberBetween(5, 60));
             $recipe->setPeuple($faker->numberBetween(1, 10));
+            $recipe->setCategories($this->getReference('categories_' . rand(0, count(CategoryFixtures::CATEGORIES)-1)));
             $recipe->setUser($this->getReference('user_' . rand(1, self::LOOPNUMBER -1)));
             $manager->persist($recipe);
         }
@@ -38,6 +40,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             UserFixtures::class,
+            CategoryFixtures::class,
         ];
     }
 }
